@@ -10,7 +10,8 @@ window.onload = () => {
             padding: inherit;
             font-family: inherit;
             border-radius: none`;
-
+        isWhiteRice = new Boolean(false);
+        isCalRice = new Boolean(false);
 
     function showAlertWhiteRice () {
         var HowMuch = document.getElementById(`number-box`).value;
@@ -24,12 +25,16 @@ window.onload = () => {
 
     if (null !== leftButton) {
         leftButton.addEventListener(`click`, showAlertWhiteRice);
+        isWhiteRice = true;
+        isCalRice = false;
     } else {
         console.error(`A reference to ID %c white-rice %c could not be established`, errorStyles, resetStyles);
     }
 
     if (null !== rightButton) {
         rightButton.addEventListener(`click`, showAlertCaliforniaRice);
+        isWhiteRice = false;
+        isCalRice = true;
     } else {
         console.error(`A reference to ID %c california-rice %c could not be established`, errorStyles, resetStyles);
     }

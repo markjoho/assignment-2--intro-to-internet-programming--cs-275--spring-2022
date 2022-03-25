@@ -5,10 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mark Pimpa | Assignment 2 | Intro to Internet Programming</title>
   <link rel="stylesheet" href="css/style.css"><!-- DO NOT ALTER THIS LINE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mali&family=Shizuru&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+  <style>
+  body {
+    background-image: linear-gradient(to bottom, White, LightBlue, White);
+  }
+  h1 {
+    padding: 20px;
+    color: Orange;
+    font: bold 40px/60px Sofia, cursive;
+    text-shadow: 3px 3px 3px #000000;
+    text-align: center;
+    margin-top: 30px;
+  }
+  p {
+    padding: 10px;
+    color: Black;
+    text-indent: 50px;
+    line-height: 5.0;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font: bold 20px/40px Mali, cursive;
+  }
+  </style>
 </head>
 <body>
   <main>
-  <p>Choices of Rice: </p>
+  <h1>Choices of Rice: </h1>
+  <p>Choices of Rice: <p>
   <p><button id="white-rice"> White Rice </button> <button id="california-rice"> Sprouted California Rice </button></p>
   <p><label for="number-box">Enter how many cup of rice you want to add, or use the up and down arrow keys:</label>
   <input type="number" value="1" name="number-box" id="number-box"></p>
@@ -17,7 +46,45 @@
   <!--All your HTML code must go here, after the <code>body</code> element and before the <code>script</code> element.-->
   <script src="js/app.js"></script><!-- DO NOT ALTER THIS LINE -->
   <script>
+  let leftButton = document.getElementById(`white-rice`),
+      rightButton = document.getElementById(`california-rice`),
+      errorStyles = `background-color: red;
+          padding: 2px;
+          color: white;
+          font-family: monospace;
+          border-radius: 4px;`,
+      resetStyles = `background-color: inherit;
+          padding: inherit;
+          font-family: inherit;
+          border-radius: none`;
+      isWhiteRice = new Boolean(false);
+      isCalRice = new Boolean(false);
 
+  function showAlertWhiteRice () {
+      var HowMuch = document.getElementById(`number-box`).value;
+      document.getElementById("Instruction").innerHTML ="Combine " + HowMuch + " cup of rice with " + HowMuch*2 + " cups of water and 1 Tbsp olive oil. Bring to a boil, then reduce heat to the lowest setting. Cook for about 18 minutes.";
+  }
+
+  function showAlertCaliforniaRice () {
+      var HowMuch = document.getElementById(`number-box`).value;
+      document.getElementById("Instruction").innerHTML ="For slightly al dente rice: Combine " + HowMuch + " cups of rice with " + HowMuch*1.6 + " cups of water or broth and 1 Tbsp olive oil. Bring to a boil and stir once to mix. Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes. Remove from heat and let stand for 5 minutes. Fluff with a fork and serve. For softer rice: Increase liquid by " + HowMuch*0.4 + " cup and cook time by 5 minutes.";
+  }
+
+  if (null !== leftButton) {
+      leftButton.addEventListener(`click`, showAlertWhiteRice);
+      isWhiteRice = true;
+      isCalRice = false;
+  } else {
+      console.error(`A reference to ID %c white-rice %c could not be established`, errorStyles, resetStyles);
+  }
+
+  if (null !== rightButton) {
+      rightButton.addEventListener(`click`, showAlertCaliforniaRice);
+      isWhiteRice = false;
+      isCalRice = true;
+  } else {
+      console.error(`A reference to ID %c california-rice %c could not be established`, errorStyles, resetStyles);
+  }
   </script>
 </body>
 </html>

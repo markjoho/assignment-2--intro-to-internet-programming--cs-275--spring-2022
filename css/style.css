@@ -1,0 +1,22 @@
+body {
+  background-image: linear-gradient(to bottom, White, LightBlue, White);
+}
+h1 {
+  padding: 20px;
+  color: Orange;
+  font: bold 40px/60px Sofia, cursive;
+  text-shadow: 3px 3px 3px #000000;
+  text-align: center;
+  margin-top: 30px;
+}
+p {
+  padding: 10px;
+  color: Black;
+  text-indent: 50px;
+  line-height: 5.0;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font: bold 20px/40px Mali, cursive;
+}
