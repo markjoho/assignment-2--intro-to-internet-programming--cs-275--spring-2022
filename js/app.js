@@ -19,13 +19,13 @@ window.onload = () => {
         HowMuch = document.getElementById(`number-box`).value;
         document.getElementById("Instruction").innerHTML ="Combine " + HowMuch + " cup of rice with " + HowMuch*2 + " cups of water and 1 Tbsp olive oil. Bring to a boil, then reduce heat to the lowest setting. Cook for about 18 minutes.";
         if (null !== numberBox) {
-            document.onkeydown = (e) => {
+            document.onkeyup = (e) => {
                 console.info(e.code);
                 if (`ArrowUp` === e.code) {
-                    HowMuch++;
+                    HowMuch += 1;
                 } else {
                     if (e.code === `ArrowDown`) {
-                        HowMuch--;
+                        HowMuch -= 1;
                     }
                 }
                 showAlertWhiteRice();
@@ -41,13 +41,13 @@ window.onload = () => {
         HowMuch = document.getElementById(`number-box`).value;
         document.getElementById("Instruction").innerHTML ="For slightly al dente rice: Combine " + HowMuch + " cups of rice with " + HowMuch*1.6 + " cups of water or broth and 1 Tbsp olive oil. Bring to a boil and stir once to mix. Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes. Remove from heat and let stand for 5 minutes. Fluff with a fork and serve. For softer rice: Increase liquid by " + HowMuch*0.4 + " cup and cook time by 5 minutes.";
         if (null !== numberBox) {
-            document.onkeydown = (e) => {
+            document.onkeyup = (e) => {
                 console.info(e.code);
                 if (`ArrowUp` === e.code) {
-                    HowMuch++;
+                    HowMuch += 1;
                 } else {
                     if (e.code === `ArrowDown`) {
-                        HowMuch--;
+                        HowMuch -= 1;
                     }
                 }
                 showAlertCaliforniaRice();
